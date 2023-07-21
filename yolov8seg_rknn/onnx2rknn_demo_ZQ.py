@@ -139,8 +139,6 @@ def postprocess(out, img_h, img_w):
 
     gridIndex = -2
 
-    mask = []
-
     for index in range(headNum):
         reg = output[index * 2 + 0]
         cls = output[index * 2 + 1]
@@ -169,7 +167,7 @@ def postprocess(out, img_h, img_w):
                         xmax = xmax if xmax < img_w else img_w
                         ymax = ymax if ymax < img_h else img_h
 
-                        mask.clear()
+                        mask = []
                         for m in range(maskNum):
                             mask.append(msk[m * mapSize[index][0] * mapSize[index][1] + h * mapSize[index][1] + w])
 
